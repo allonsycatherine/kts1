@@ -11,6 +11,8 @@ def is_prime(number: int) -> bool:
     if number > 1:
         if (fac(number - 1)+1)%number == 0:
             return True
+        else:
+            return False
     else:
         return False
 

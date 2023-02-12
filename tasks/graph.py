@@ -35,10 +35,25 @@ class Graph:
         queue = collections.deque([self._root])
         self.visited.append(self._root)
         while queue: 
-            vertex = queue.popleft() 
+            self._root= queue.popleft() 
             for neighbour in self._root.outbound: 
                 if neighbour not in self.visited: 
                     self.visited.append(neighbour) 
                     queue.append(neighbour)  
-                    print(queue) 
         return self.visited   
+
+a = Node('a')
+b = Node('b')
+c = Node('c')
+d = Node('d')
+e = Node('e')
+f = Node('f')
+a.point_to(b)
+b.point_to(c)
+c.point_to(d)
+d.point_to(a)
+b.point_to(d)
+b.point_to(f)
+f.point_to(e)
+g = Graph(a)
+print(g.bfs())

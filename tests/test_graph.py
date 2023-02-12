@@ -196,9 +196,7 @@ class TestBFS:
         f.point_to(e)
 
         g = Graph(a)
-
-        assert bfs_values(g) == ['a', 'b', 'c', 'd', 'f', 'e']
-
+        
         assert bfs_values(g) == ['a', 'b', 'c', 'd', 'f', 'e']
 
     def test_bfs_7(self):

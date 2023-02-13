@@ -11,10 +11,10 @@ def find_shortest_longest_word(text: str) -> tuple[Optional[str], Optional[str]]
     В переданном тексте вернуть слово имеющее наименьшую и наибольшую длину.
     Если такого слова нет - вернуть None
     """
-    if re.fullmatch('\s+', text):
+    if re.fullmatch(r'\s+', text):
         return None, None
     else:
-        text = re.sub('\s+', ' ', text)
+        text = re.sub(r'\s+', ' ', text)
         if len(text) > 0:
             txt = text.split()
             shortest = [txt[0]]

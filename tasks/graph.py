@@ -23,14 +23,15 @@ class Graph:
     def __init__(self, root: Node):
         self._root = root
         self.visited = []
+        self.visited2 = []
         self.stack = []
     def dfs(self) -> list[Node]:
         self.visited.append(self._root)
-        for u in self._root.outbound:
-            if u not in self.visited:
-                self._root = u
+        for i in self._root.outbound:
+            if i not in self.visited:
+                self._root = i
                 self.dfs()
-        return self.visited
+        return list(self.visited)
     def bfs(self) -> list[Node]:
         queue = collections.deque([self._root])
         self.visited.append(self._root)
@@ -39,8 +40,11 @@ class Graph:
             for neighbour in self._root.outbound: 
                 if neighbour not in self.visited: 
                     self.visited.append(neighbour) 
-                    queue.append(neighbour)  
-        return self.visited   
+                    queue.append(neighbour)
+        for i in self.visited:
+            if i not in self.visited2:
+                self.visited2.append(i)
+        return self.visited2 
 
 a = Node('a')
 b = Node('b')
@@ -56,4 +60,5 @@ b.point_to(d)
 b.point_to(f)
 f.point_to(e)
 g = Graph(a)
+print(g.bfs())
 print(g.bfs())
